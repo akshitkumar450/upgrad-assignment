@@ -37,7 +37,7 @@ function MovieTable() {
           </div>
 
           <table className="movie__table">
-            <thead>
+            <thead className="movie__header">
               <tr>
                 <th>No</th>
                 <th>Title</th>
@@ -47,7 +47,7 @@ function MovieTable() {
               </tr>
             </thead>
 
-            <tbody>
+            <tbody className="movie__body">
               {movies?.map((movie, idx) => (
                 <MovieRow key={movie.imdbID} idx={idx} movie={movie} />
               ))}
@@ -55,7 +55,9 @@ function MovieTable() {
           </table>
         </>
       ) : (
-        <p className="movie__noResult">No results found</p>
+        <p className="movie__noResult">
+          No results found ! please enter a valid movie name
+        </p>
       )}
     </>
   );
