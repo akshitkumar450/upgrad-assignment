@@ -1,3 +1,12 @@
+import {
+  ADD_MOVIES,
+  DELETE_MOVIE,
+  RESET,
+  SORT_ASC,
+  SORT_DESC,
+  UPDATE_MOVIE,
+} from "../actions/actionsTypes";
+
 const initialState = {
   movies: [],
 };
@@ -5,17 +14,22 @@ const initialState = {
 export const movieReducer = (state = initialState, action) => {
   console.log(action);
   switch (action.type) {
-    case "ADD_MOVIES":
+    case ADD_MOVIES:
       return {
         ...state,
         movies: action.payload,
       };
-    case "DELETE_MOVIE":
+    case RESET:
+      return {
+        ...state,
+        movies: [],
+      };
+    case DELETE_MOVIE:
       return {
         ...state,
         movies: state.movies.filter((movie) => movie.imdbID !== action.payload),
       };
-    case "UPDATE_MOVIE":
+    case UPDATE_MOVIE:
       return {
         ...state,
         movies: state.movies.map((movie) =>
@@ -24,7 +38,16 @@ export const movieReducer = (state = initialState, action) => {
             : movie
         ),
       };
-
+    case SORT_ASC:
+      return {
+        ...state,
+        movies: state.movies.sort((a, b) => b.Title.length - a.Title.length),
+      };
+    case SORT_DESC:
+      return {
+        ...state,
+        movies: state.movies.sort((a, b) => a.Title.length - b.Title.length),
+      };
     default:
       return state;
   }

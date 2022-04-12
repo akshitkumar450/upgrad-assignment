@@ -1,6 +1,7 @@
 .movie__row img {
   height: 150px;
-  object-fit: contain;
+  width: 150px;
+  /* object-fit: contain; */
 }
 .movie__delete {
   cursor: pointer;

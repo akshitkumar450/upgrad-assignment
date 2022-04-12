@@ -7,3 +7,20 @@
   text-align: center;
   font-size: 25px;
 }
+.movie__total {
+  text-align: center;
+  padding: 10px;
+  font-size: 20px;
+}
+.movie__sorBtn {
+  display: flex;
+  justify-content: flex-end;
+  margin: 10px;
+}
+.movie__sorBtn > button {
+  margin: 0 5px;
+}
+.movie__sorBtn + p {
+  text-align: right;
+  margin: 0 50px;
+}

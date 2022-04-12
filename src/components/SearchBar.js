@@ -2,31 +2,40 @@ import React, { useState } from "react";
 import "./SearchBar.css";
 import { FaSearch } from "react-icons/fa";
 import { useDispatch } from "react-redux";
-import { fetchMoviesAction } from "../redux/actions/movieActions";
+import { fetchMoviesAction, resetAction } from "../redux/actions/movieActions";
 function SearchBar() {
   const dispatch = useDispatch();
   const [search, setSearch] = useState("");
 
-  const fetchMovies = () => {
+  const fetchMovies = (e) => {
+    e.preventDefault();
+    dispatch(resetAction());
     dispatch(fetchMoviesAction(search));
   };
+
+  const clearSearch = (e) => {
+    e.preventDefault();
+    setSearch("");
+  };
   return (
-    <div className="search__container">
+    <form className="search__container">
       <div className="search__input">
         <input
           type="text"
           value={search}
           placeholder="enter movie name to search..."
-          onChange={(e) => setSearch(e.target.value)}
+          onChange={(e) => setSearch(e.target.value.trim())}
         />
         <FaSearch />
       </div>
 
       <div className="search__buttons">
-        <button onClick={fetchMovies}>Apply</button>
-        <button onClick={() => setSearch("")}>clear</button>
+        <button type="submit" onClick={fetchMovies}>
+          Apply
+        </button>
+        <button onClick={clearSearch}>clear</button>
       </div>
-    </div>
+    </form>
   );
 }
 

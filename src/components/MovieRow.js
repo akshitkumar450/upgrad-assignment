@@ -17,15 +17,14 @@ function MovieRow({ idx, movie }) {
     dispatch(deleteMovieAction(movieId));
   };
 
-  function toggleModal() {
+  const toggleModal = () => {
     setIsOpen(!isOpen);
-  }
+  };
   const closeModal = () => {
     setIsOpen(false);
   };
 
   const saveUpdated = (movieId) => {
-    console.log(updatedTitle);
     dispatch(updateMovieAction(movieId, updatedTitle));
     closeModal();
   };
@@ -35,10 +34,11 @@ function MovieRow({ idx, movie }) {
         isOpen={isOpen}
         onRequestClose={toggleModal}
         contentLabel="My dialog"
-        className="mymodal"
+        className="modal"
         overlayClassName="myoverlay"
         closeTimeoutMS={500}
       >
+        <p>Title of the Movie</p>
         <div className="modal__input">
           <input
             value={updatedTitle}
