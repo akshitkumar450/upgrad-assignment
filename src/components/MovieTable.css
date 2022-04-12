@@ -1,0 +1,9 @@
+.movie__table {
+  width: 70%;
+  margin: 20px auto;
+  text-align: left;
+}
+.movie__noResult {
+  text-align: center;
+  font-size: 25px;
+}

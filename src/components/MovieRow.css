@@ -1,0 +1,12 @@
+.movie__row img {
+  height: 150px;
+  object-fit: contain;
+}
+.movie__delete {
+  cursor: pointer;
+  color: red;
+}
+.movie__view {
+  cursor: pointer;
+  color: blue;
+}
