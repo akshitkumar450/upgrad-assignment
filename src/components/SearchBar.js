@@ -30,7 +30,7 @@ function SearchBar() {
       </div>
 
       <div className="search__buttons">
-        <button type="submit" onClick={fetchMovies}>
+        <button type="submit" disabled={!search} onClick={fetchMovies}>
           Apply
         </button>
         <button onClick={clearSearch}>clear</button>

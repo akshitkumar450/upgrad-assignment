@@ -8,6 +8,7 @@ import { FaArrowUp, FaArrowDown } from "react-icons/fa";
 function MovieTable() {
   const dispatch = useDispatch();
   const movies = useSelector((state) => state.movies.movies);
+  const loading = useSelector((state) => state.movies.loading);
   const [toggle, setToggle] = useState(false);
 
   const sortMoviesAsc = () => {
@@ -19,6 +20,9 @@ function MovieTable() {
     dispatch(sortDescAction());
     setToggle(!toggle);
   };
+
+  if (loading) return <p className="loading__text">loading...</p>;
+
   return (
     <>
       {movies?.length ? (

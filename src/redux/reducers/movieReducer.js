@@ -1,6 +1,7 @@
 import {
   ADD_MOVIES,
   DELETE_MOVIE,
+  LOADING,
   RESET,
   SORT_ASC,
   SORT_DESC,
@@ -9,6 +10,7 @@ import {
 
 const initialState = {
   movies: [],
+  loading: false,
 };
 
 export const movieReducer = (state = initialState, action) => {
@@ -18,6 +20,11 @@ export const movieReducer = (state = initialState, action) => {
       return {
         ...state,
         movies: action.payload,
+      };
+    case LOADING:
+      return {
+        ...state,
+        loading: action.payload,
       };
     case RESET:
       return {

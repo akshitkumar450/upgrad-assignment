@@ -4,3 +4,4 @@ export const UPDATE_MOVIE = "UPDATE_MOVIE";
 export const SORT_ASC = "SORT_ASC";
 export const SORT_DESC = "SORT_DESC";
 export const RESET = "RESET";
+export const LOADING = "LOADING";

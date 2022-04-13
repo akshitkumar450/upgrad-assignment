@@ -1,6 +1,7 @@
 .movie__row td {
   border-bottom: 1px solid lightgray;
   padding: 10px 0;
+  text-align: center;
 }
 
 .movie__row img {
@@ -14,5 +15,5 @@
 }
 .movie__view {
   cursor: pointer;
-  color: blue;
+  color: green;
 }

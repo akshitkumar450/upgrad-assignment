@@ -30,3 +30,6 @@
 .movie__header th {
   padding: 10px;
 }
+.loading__text {
+  text-align: center;
+}

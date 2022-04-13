@@ -2,6 +2,7 @@ import axios from "axios";
 import {
   ADD_MOVIES,
   DELETE_MOVIE,
+  LOADING,
   RESET,
   SORT_ASC,
   SORT_DESC,
@@ -15,11 +16,20 @@ export const addMovie = (data) => {
   };
 };
 
+export const loadingAction = (loading) => {
+  return {
+    type: LOADING,
+    payload: loading,
+  };
+};
+
 export const fetchMoviesAction = (search) => {
   return async (dispatch) => {
+    dispatch(loadingAction(true));
     const movies = await axios.get(
       `http://www.omdbapi.com/?s=${search}&apikey=378bc469`
     );
+    dispatch(loadingAction(false));
     dispatch(addMovie(movies.data.Search));
   };
 };
