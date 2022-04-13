@@ -26,6 +26,7 @@
 }
 .movie__header {
   background-color: gray;
+  color: white;
 }
 .movie__header th {
   padding: 10px;
